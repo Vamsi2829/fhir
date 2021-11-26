@@ -31,15 +31,18 @@
 				<extensions>true</extensions>
 				<configuration>
 				<cloudHubDeployment>
-				<uri>https://anypoint.mulesoft.com</uri>uri>
-				<muleVersion>4.4.0</muleVersion>
-				<username>vamsi1234</username>
-				<password>Vamsi123</password>
-				<applicationName>fhir-poc</applicationName>
-				<environment>Sandbox</environment>
-				<workerType>MICRO</workerType>
+				<uri>https://anypoint.mulesoft.com</uri>
+				<muleVersion>${mule.version}</muleVersion>
+				<username>${anypoint.username}</username>
+				<password>${anypoint.password}</password>
+				<environment>${env}</environment>
+				<applicationName>${appname}</applicationName>
+				<businessGroup>${business}</businessGroup>
+				<workerType>${vCore}</workerType>
+				<workers>${workers}</workers>
 				<objectStoreV2>true</objectStoreV2>
 				</cloudHubDeployment>
+				<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
 		</plugins>
