@@ -6,11 +6,11 @@
 http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="1ac8ab1b-40d0-4148-835f-3d292852f160" >
-		<salesforce:basic-connection username="vamsidhar-reddy.chinta-fsnl@force.com" password="Vamsi123" securityToken="Wd31G5hxf3qXIEvWxJ6TzLGw" />
+		<salesforce:basic-connection username="vamsi.kinnera-p4uz@force.com" password="Vamsi@sales1" securityToken="54ZQxWSefcX4TFg4yRKQIcFof" />
 	</salesforce:sfdc-config>
 	<flow name="fhir-pocFlow" doc:id="1bf1f791-827c-4f59-b983-23030d69b720" >
 		<salesforce:query doc:name="Query" doc:id="513e6d07-2c54-4104-ac1e-347e77ae67cb" config-ref="Salesforce_Config">
-			<salesforce:salesforce-query ><![CDATA[select PatientId__c,Name,BillingCity,BillingState,BillingPostalCode,Phone From Account]]></salesforce:salesforce-query>
+			<salesforce:salesforce-query ><![CDATA[select Patient_Id__c,Name,BillingCity,BillingState,BillingPostalCode,Phone From Account]]></salesforce:salesforce-query>
 		</salesforce:query>
 		<logger level="INFO" doc:name="Logger" doc:id="896d462a-d600-43ad-ba78-338381fcc197" message="#[payload]" />
 		<ee:transform doc:name="Transform Message" doc:id="621fe451-8c89-4007-91b0-8635423f8f03" >
@@ -29,7 +29,7 @@ payload]]></ee:set-payload>
 output application/json
 ---
 [{
-PatientId__c : payload.id,
+Patient_Id__c : payload.id,
 Name: payload.name[0].use,
 BillingCity:payload.address[0].city,
 BillingState:payload.address[0].state,
